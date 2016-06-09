@@ -46,7 +46,7 @@ for pid in procsToAttachTo.keys():
 	gdbArgs = ["gdb"]
 	gdbArgs.extend(gdbReadyToContinueArgs)
 	if continueImmediately:
-		gdbAttachArgs.extend(["-ex","c"])
+		gdbArgs.extend(["-ex","c"])
 	gdbArgs.extend([executable, pid])
 	fullArgs = screenArgs + gdbArgs
 	call(fullArgs)
