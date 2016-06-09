@@ -10,34 +10,34 @@ int main (int argc, char *argv[])
 	int worldRank;
 	MPI_Comm_size(MPI_COMM_WORLD, &worldSize);
 	MPI_Comm_rank(MPI_COMM_WORLD, &worldRank);
-	
+
 	// By default, don't wait for gdb to attach
 	bool waitForGDB = false;
-	
+
 	// Parse arguments
 	int argIndex = 0;    
-    while (argIndex < argc){
-        if (std::string(argv[argIndex]) == "-gdbwait"){
-            waitForGDB = true;
-            argIndex++;
-        }
-        else{
-            argIndex++;
-        }
-    }
-	
+	while (argIndex < argc){
+		if (std::string(argv[argIndex]) == "-gdbwait"){
+			waitForGDB = true;
+			argIndex++;
+		}
+		else{
+			argIndex++;
+		}
+	}
+
 	// Wait for gdb to attach
-    if (waitForGDB) {
-        printf("PID %d (rank %d) ready for attach.\n", getpid(), worldRank);
-        printf("Run 'gdb executablePath PID' to attach gdb.\n");
-        printf("Then run 'frame 2' to move up to this frame.\n");
-        printf("Finally, run 'set doWait=false' and 'c' (continue) to continue.\n");
-        bool doWait = true;
-        while (doWait) {
-            sleep(5);
-        }
-        printf("Continuing...\n");
-    }
+	if (waitForGDB) {
+		printf("PID %d (rank %d) ready for attach.\n", getpid(), worldRank);
+		printf("Run 'gdb executablePath PID' to attach gdb.\n");
+		printf("Then run 'frame 2' to move up to this frame.\n");
+		printf("Finally, run 'set doWait=false' and 'c' (continue) to continue.\n");
+		bool doWait = true;
+		while (doWait) {
+			sleep(5);
+		}
+		printf("Continuing...\n");
+	}
     
     // Test behavior around a barrier
     printf("Rank %d before barrier.\n", worldRank);
