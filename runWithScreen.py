@@ -13,6 +13,7 @@ waitArg = "-gdbwait"
 dontAttachPrefix = "mpirun"
 gdbReadyToContinueArgs = ["-x","gdbSetReadyToContinue.txt"]
 
+# Get dictionary from process id to the call string that invoked the process
 def getPIDToProcstringDict():
 	"""
 	Approach taken from http://stackoverflow.com/questions/2703640/process-list-on-linux-via-python
