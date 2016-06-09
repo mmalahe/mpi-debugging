@@ -1,4 +1,4 @@
-This is a brief example of how to do your own MPI debugging for small problems with gdb and screen. The approach is the following:
+Following the advice in https://www.open-mpi.org/faq/?category=debugging, under point 6, this is a brief example of how to do MPI debugging for small problems with gdb and screen. The approach is the following:
 - Create a main screen
 - Create a window in the main screen for the mpirun command
 - Create a window in the main screen for each of the spawned processes, in which a separate gdb session is attached to each of them.
