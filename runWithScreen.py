@@ -49,3 +49,4 @@ for pid in procsToAttachTo.keys():
 	gdbArgs.extend([executable, pid])
 	fullArgs = screenArgs + gdbArgs
 	call(fullArgs)
+call(["screen","-r",mainScreenName,"-p","mpirun"])
