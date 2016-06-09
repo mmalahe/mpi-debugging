@@ -38,12 +38,12 @@ int main (int argc, char *argv[])
 		}
 		printf("Continuing...\n");
 	}
-    
-    // Test behavior around a barrier
-    printf("Rank %d before barrier.\n", worldRank);
-    MPI_Barrier(MPI_COMM_WORLD);
-    printf("Rank %d after barrier.\n", worldRank);
-    
-    // Finalize MPI
-    MPI_Finalize();
+
+	// Test behavior around a barrier
+	printf("Rank %d before barrier.\n", worldRank);
+	MPI_Barrier(MPI_COMM_WORLD);
+	printf("Rank %d after barrier.\n", worldRank);
+
+	// Finalize MPI
+	MPI_Finalize();
 }
